@@ -1,0 +1,18 @@
+<h1>Todo List</h1>
+<hr />
+
+<%= link_to 'New Todo', new_todo_list_path %>
+
+<% if @todo_list.empty? %>
+  <h3>You have finished your Todo List, find something else to do.</h3>
+  <% else %>
+  <ul>
+    <%= @todo_lists.each do |todo_list| %>
+    <li>
+      <%= link_to todo_lists.title, todo_list_path(todo_list) %>
+      <%= link_to 'Delete', todo_list_path(todo_list), method: :delete %>
+  <%= link_to 'Show Todo List', todo_list_path(todo_lists) %>
+    </li>
+    <% end %>
+  </ul>
+<% end %>
