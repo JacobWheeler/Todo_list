@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
-root 'todo_lists#index'
+root 'todos#index'
 
-resources :todo_lists
+resources :todos
 
 end

@@ -1,46 +1,46 @@
-class TodoListsController < ApplicationController
+class TodosController < ApplicationController
   def index
-    @todo_lists = TodoList.all
+    @todos = Todo.all
   end
 
   def show
-    @todo_list = TodoList.find(params[:id])
+    @todo = Todo.find(params[:id])
   end
 
   def new
-    @todo_list = TodoList.new
+    @todo = Todo.new
   end
 
   def create
-    @todo_list = TodoList.new(todo_list_params)
-    if @todo_list.save
-      redirect_to todo_list_path(@todo_list)
+    @todo = Todo.new(todo_params)
+    if @todo.save
+      redirect_to todos_path(@todo_list)
     else
       render :new
     end
   end
 
   def edit
-    @todo_list = TodoList.find(params[:id])
+    @todo = Todo.find(params[:id])
   end
 
   def update
-    @todo_list = TodoList.find(params[:id])
-    if @todo_list.update(todo_list_params)
-      redirect_to todo_list_path(@todo_list)
+    @todo = Todo.find(params[:id])
+    if @todo.update(todo_list_params)
+      redirect_to todo_path(@todo_list)
     else
       render :edit
     end
   end
 
   def destroy
-    @todo_list = TodoList.find(paramas[:id])
-    @todo_list.destroy
-    redirect_to todo_lists_path
+    @todo = Todo.find(params[:id])
+    @todo.destroy
+    redirect_to todos_path
   end
 
   private
-  def todo_list_params
-    params.require(:todo_list).permit(:title, :description)
+  def todo_params
+    params.require(:todo).permit(:title, :description)
   end
 end

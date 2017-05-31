@@ -1,9 +1,9 @@
 <h1> Create New Todo </h1>
 <hr />
 
-<%= form_for @todo_lists do |f| %>
+<%= form_for @todo do |f| %>
   <%= f.label :title %>
-  <% f.text_field :title %>
+  <%= f.text_field :title %>
   <br />
 
   <%= f.label :description %>
